@@ -80,43 +80,6 @@
     </section>
 </div>
 
-<div class="contenido">
-    <!-- Botón del menú -->
-    <div class="open-btn" onclick="toggleSidebar()">&#9776;</div>
 
-    <!-- Menú lateral -->
-    <div class="sidebar" id="sidebar">
-        <a href="paciente.html">Inicio</a>
-        <a href="miPerfil.html">Mi perfil</a>
-        <a href="pedirTurno.html">Solicitar un turno</a>
-        <a href="misTurnos.html">Mis turnos</a>
-        <a href="index.html">Cerrar sesión</a>
-    </div>
-</div>
 
-<script>
-    /* Barra lateral */
-    function toggleSidebar() {
-        var sidebar = document.getElementById("sidebar");
-        sidebar.classList.toggle("active");
-    }
-
-    /* Función para las secciones del menú */
-    function mostrarSeccion(seccion) {
-        var secciones = [
-            "perfil",
-            "solicitarTurno",
-            "misTurnos",
-            "cerrarSesion",
-        ];
-        secciones.forEach(function (item) {
-            var element = document.getElementById(item);
-            if (item === seccion) {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
-            }
-        });
-    }
-</script>
 @endsection

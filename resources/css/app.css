@@ -1,688 +1,693 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
-html,body {
-  scroll-behavior: smooth;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+html,
+body {
+    scroll-behavior: smooth;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: "DM Sans", sans-serif;
-  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  padding: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+    font-family: "DM Sans", sans-serif;
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.infoBloque a{
-  text-decoration: none;
-  color: white;
+.infoBloque a {
+    text-decoration: none;
+    color: white;
 }
 .espacio {
-  margin: 5px;
+    margin: 5px;
 }
 
 header {
-  background-image: url(imagenes/bannerSuperior.png);
-  background-size: cover;
-  background-position: center;
-  height: 45vh;
-  margin-top: 5vh;
+    background-image: url(imagenes/bannerSuperior.png);
+    background-size: cover;
+    background-position: center;
+    height: 45vh;
+    margin-top: 5vh;
 }
 .bloque {
-  align-items: center;
-  display: flex;
-  height: 240px;
-  justify-content: center;
-  color: aliceblue;
+    align-items: center;
+    display: flex;
+    height: 240px;
+    justify-content: center;
+    color: aliceblue;
 }
 .bloque:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 .infoBloque {
-  margin-top: -13vh;
-  margin-bottom: 60px;
-  text-align: center;
-  align-content: center;
+    margin-top: -13vh;
+    margin-bottom: 60px;
+    text-align: center;
+    align-content: center;
 }
 h1 {
-  color: #07ba81;
-  margin: 60px;
+    color: #07ba81;
+    margin: 60px;
 }
 h2 {
-  color: #e47dfd;
+    color: #e47dfd;
 }
 .sectionindex {
-  padding-top: 10vh;
+    padding-top: 10vh;
 }
 .icono {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 .aqua {
-  background-image: url(imagenes/bannerVerde.png);
-  background-size: cover;
-  background-position: center;
-  margin-top: 10vh;
-  font-size: 2vh;
-  height: 45vh;
+    background-image: url(imagenes/bannerVerde.png);
+    background-size: cover;
+    background-position: center;
+    margin-top: 10vh;
+    font-size: 2vh;
+    height: 45vh;
 }
 
 .bannesColorDoctorArriba {
-  position:relative;
-  top: 0;
-  width: 100%;
-  height: 7vh;
-  background-color: #00b392;
-  margin: 0;
-  padding: 0;
-  
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 7vh;
+    background-color: #00b392;
+    margin: 0;
+    padding: 0;
 }
 
 .marca {
-  text-decoration: none;
-  color: #000 !important;
-  padding-right: 20px;
+    text-decoration: none;
+    color: #000 !important;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
 }
 
-
 .bannesColorPacienteArriba {
-  position: relative;
-  top: 0;
-  width: 100%;
-  height: 7vh;
-  background-color: #e47dfd;
-  margin: 0;
-  padding: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 7vh;
+    background-color: #e47dfd;
+    margin: 0;
+    padding: 0;
 }
 
 .izq {
-  margin-left: 10%;
+    margin-left: 10%;
 }
 .lila {
-  background-image: url(imagenes/bannerLila.png);
-  background-size: cover;
-  background-position: center;
-  margin-top: 10vh;
-  font-size: 2vh;
-  height: 45vh;
+    background-image: url(imagenes/bannerLila.png);
+    background-size: cover;
+    background-position: center;
+    margin-top: 10vh;
+    font-size: 2vh;
+    height: 45vh;
 }
 .der {
-  margin-left: 40%;
+    margin-left: 40%;
 }
 
-footer{
-  text-align: center;
-  padding: 50px;
-  color: #000;
-  background-color: #f8f9fa;
+footer {
+    text-align: center;
+    padding: 50px;
+    color: #000;
+    background-color: #f8f9fa;
 }
 
-.pie ul{
-  display: flex;
-  list-style-type: none;
+.pie ul {
+    display: flex;
+    list-style-type: none;
 }
 
-.pie a{
-  text-decoration: none;
-  color: rgb(116, 110, 119);
+.pie a {
+    text-decoration: none;
+    color: rgb(116, 110, 119);
 }
-
 
 /*tabla calendario de turnos del doctor*/
 
-
 .calendario-tabla table thead tr {
-  background:  #89d8c9;
-  box-shadow: 5px 12px 18px rgb(0 0 0 / 9%);
+    background: #89d8c9;
+    box-shadow: 5px 12px 18px rgb(0 0 0 / 9%);
 }
 .calendario-tabla table thead th {
-  padding: 25px 50px;
-  color: #fff;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 800;
-  position: relative;
-  border: 0;
+    padding: 25px 50px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+    position: relative;
+    border: 0;
 }
 .calendario-tabla table thead th:before {
-  content: "";
-  width: 3px;
-  height: 35px;
-  background: rgba(255, 255, 255, 0.2);
-  position: absolute;
-  right: -1px;
-  top: 50%;
-  transform: translateY(-50%);
+    content: "";
+    width: 3px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .calendario-tabla table thead th.last:before {
-  content: none;
+    content: none;
 }
 .calendario-tabla table tbody td {
-  vertical-align: middle;
-  border: 1px solid #e2edf8;
-  font-weight: 500;
-  padding: 30px;
-  text-align: center;
+    vertical-align: middle;
+    border: 1px solid #e2edf8;
+    font-weight: 500;
+    padding: 30px;
+    text-align: center;
 }
 .calendario-tabla table tbody td.dia {
-  font-size: 22px;
-  font-weight: 600;
-  background: #90ddcf71;
-  border: 1px solid #e4e4e4;
-  position: relative;
-  transition: all 0.3s linear 0s;
-  min-width: 165px;
+    font-size: 22px;
+    font-weight: 600;
+    background: #90ddcf71;
+    border: 1px solid #e4e4e4;
+    position: relative;
+    transition: all 0.3s linear 0s;
+    min-width: 165px;
 }
 .calendario-tabla table tbody td.active {
-  position: relative;
-  z-index: 10;
-  transition: all 0.3s linear 0s;
-  min-width: 165px;
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s linear 0s;
+    min-width: 165px;
 }
 .calendario-tabla table tbody td.active h4 {
-  font-weight: 700;
-  color: #000;
-  font-size: 20px;
-  margin-bottom: 5px;
+    font-weight: 700;
+    color: #000;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
 .calendario-tabla table tbody td.active p {
-  font-size: 16px;
-  line-height: normal;
-  margin-bottom: 0;
+    font-size: 16px;
+    line-height: normal;
+    margin-bottom: 0;
 }
 .calendario-tabla table tbody td .hover h4 {
-  font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
 .calendario-tabla table tbody td .hover p {
-  font-size: 16px;
-  margin-bottom: 5px;
-  line-height: normal;
+    font-size: 16px;
+    margin-bottom: 5px;
+    line-height: normal;
 }
 
 .calendario-tabla table tbody td.active::before {
-  position: absolute;
-  min-width: 100%;
-  min-height: 100%;
-  transform: scale(0);
-  top: 0;
-  left: 0;
-  z-index: -1;
-  border-radius: 0.25rem;
-  transition: all 0.3s linear 0s;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    transform: scale(0);
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 0.25rem;
+    transition: all 0.3s linear 0s;
 }
 .calendario-tabla table tbody td .hover {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 120%;
-  height: 120%;
-  transform: translate(-50%, -50%) scale(0.8);
-  z-index: 99;
-  background: #d6cef3;
-  border-radius: 0.25rem;
-  padding: 25px 0;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s linear 0s;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translate(-50%, -50%) scale(0.8);
+    z-index: 99;
+    background: #d6cef3;
+    border-radius: 0.25rem;
+    padding: 25px 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s linear 0s;
 }
 .calendario-tabla table tbody td.active:hover .hover {
-  transform: translate(-50%, -50%) scale(1);
-  visibility: visible;
-  opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+    opacity: 1;
 }
 
 /*historial médico*/
-.buscador{
-  margin: 50px;
+.buscador {
+    margin: 50px;
 }
 
-.historiales{
-  padding: 20px;
+.historiales {
+    padding: 20px;
 }
 
-.historialMedico{
-  margin-bottom: 0px !important; 
+.historialMedico {
+    margin-bottom: 0px !important;
 }
 
 @media screen and (max-width: 1199px) {
-
-  .calendario-tabla {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-  }
-  .calendario-tabla table thead th {
-    padding: 25px 40px;
-  }
-  .calendario-tabla table tbody td {
-    padding: 20px;
-  }
-  .calendario-tabla table tbody td.active h4 {
-    font-size: 18px;
-  }
-  .calendario-tabla table tbody td.active p {
-    font-size: 15px;
-  }
-  .calendario-tabla table tbody td.dia {
-    font-size: 20px;
-  }
-  .calendario-tabla table tbody td .hover {
-    padding: 15px 0;
-  }
-  .calendario-tabla table tbody td .hover span {
-    font-size: 17px;
-  }
+    .calendario-tabla {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+    .calendario-tabla table thead th {
+        padding: 25px 40px;
+    }
+    .calendario-tabla table tbody td {
+        padding: 20px;
+    }
+    .calendario-tabla table tbody td.active h4 {
+        font-size: 18px;
+    }
+    .calendario-tabla table tbody td.active p {
+        font-size: 15px;
+    }
+    .calendario-tabla table tbody td.dia {
+        font-size: 20px;
+    }
+    .calendario-tabla table tbody td .hover {
+        padding: 15px 0;
+    }
+    .calendario-tabla table tbody td .hover span {
+        font-size: 17px;
+    }
 }
 @media screen and (max-width: 991px) {
-  .calendario-tabla table thead th {
-    font-size: 18px;
-    padding: 20px;
-  }
-  .calendario-tabla table tbody td.dia {
-    font-size: 18px;
-  }
-  .calendario-tabla table tbody td.active h4 {
-    font-size: 17px;
-  }
-  
+    .calendario-tabla table thead th {
+        font-size: 18px;
+        padding: 20px;
+    }
+    .calendario-tabla table tbody td.dia {
+        font-size: 18px;
+    }
+    .calendario-tabla table tbody td.active h4 {
+        font-size: 17px;
+    }
 }
 @media screen and (max-width: 767px) {
-  .calendario-tabla table thead th {
-    padding: 15px;
-  }
-  .calendario-tabla table tbody td {
-    padding: 15px;
-  }
-  .calendario-tabla table tbody td.active h4 {
-    font-size: 16px;
-  }
-  .calendario-tabla table tbody td.active p {
-    font-size: 14px;
-  }
-  .calendario-tabla table tbody td .hover {
-    padding: 10px 0;
-  }
-  .calendario-tabla table tbody td.dia {
-    font-size: 18px;
-  }
-  .calendario-tabla table tbody td .hover span {
-    font-size: 15px;
-  }
+    .calendario-tabla table thead th {
+        padding: 15px;
+    }
+    .calendario-tabla table tbody td {
+        padding: 15px;
+    }
+    .calendario-tabla table tbody td.active h4 {
+        font-size: 16px;
+    }
+    .calendario-tabla table tbody td.active p {
+        font-size: 14px;
+    }
+    .calendario-tabla table tbody td .hover {
+        padding: 10px 0;
+    }
+    .calendario-tabla table tbody td.dia {
+        font-size: 18px;
+    }
+    .calendario-tabla table tbody td .hover span {
+        font-size: 15px;
+    }
 }
 @media screen and (max-width: 575px) {
-  .calendario-tabla table tbody td.dia {
-    min-width: 135px;
-  }
+    .calendario-tabla table tbody td.dia {
+        min-width: 135px;
+    }
 }
 
 /*Este es el formulario para iniciar sesion y registrarse c:*/
 
 .registro {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f1f1f1;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f1f1f1;
 }
 
 .container-loggin {
-  display: flex;
-  flex-direction: row;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 20px;
-  position: relative;
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 20px;
+    position: relative;
 }
 
 .login-form {
-  flex: 1.5;
-  padding: 40px;
-  background-color: #ffffff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    flex: 1.5;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .login-form h2 {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .login-form input[type="text"],
 .login-form input[type="email"],
 .login-form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
 }
 
 .botonLoggin {
-  width: 100%;
-  padding: 10px;
-  background-color: #e47dfd;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    background-color: #e47dfd;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .botonLoggin:hover {
-  background-color: #00b392;
+    background-color: #00b392;
 }
 
-
 .image-container {
-  display: none;
+    display: none;
 }
 
 .volver-btn {
-  position: absolute;
-  top: -50px;
-  z-index: 1;
+    position: absolute;
+    top: -50px;
+    z-index: 1;
 }
 
-.volver-btn-iniciarsesion{
-  color: #198754;
-  top: -50px;
-  z-index: 1;
+.volver-btn-iniciarsesion {
+    color: #198754;
+    top: -50px;
+    z-index: 1;
 }
 
 /*MEDIAAAAAAAAAAAAAAA-------------------------------------------*/
 @media (min-width: 768px) {
-  .image-container {
-    display: block;
-    flex: 1;
-    background-image: url("imagenes/nosotros1.jpg");
-    background-size: cover;
-    background-position: center;
-  }
-  .image-container-registro {
-    display: block;
-    flex: 1;
-    background-image: url("imagenes/nosotros4.jpg");
-    background-size: cover;
-    background-position: center;
-  }
+    .image-container {
+        display: block;
+        flex: 1;
+        background-image: url("imagenes/nosotros1.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+    .image-container-registro {
+        display: block;
+        flex: 1;
+        background-image: url("imagenes/nosotros4.jpg");
+        background-size: cover;
+        background-position: center;
+    }
 }
 
 /* Menu desplegable */
 .sidebar {
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  top: 0;
-  left: -250px;
-  background-color: #111;
-  transition: left 0.5s ease;
-  padding-top: 80px;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #111;
+    transition: left 0.5s ease;
+    padding-top: 80px;
 }
 
 .sidebar a {
-  padding: 10px 15px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
 .sidebar a:hover {
-  color: #f1f1f1;
+    color: #f1f1f1;
 }
 
 /* Boton menu */
 .open-btn {
-  font-size: 30px;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  color: #818181;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 999;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #818181;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
 }
 
 .open-btn:hover {
-  color: #f1f1f1;
+    color: #f1f1f1;
 }
 
 /* Mostrar el menú abierto */
 .sidebar.active {
-  left: 0;
+    left: 0;
 }
 
 /* Menú cuando se esta usando */
 .sidebar:hover {
-  left: 0;
+    left: 0;
 }
 
 .contenido {
-  position: relative;
-  padding-left: 50px;
-  padding-right: 50px;
+    position: relative;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .option {
-  height: 180px;
-  width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 18px rgb(0 0 0 / 9%);
+    height: 180px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 18px rgb(0 0 0 / 9%);
 }
 
 /* Agrega espacio entre columnas */
 .row {
-  margin-bottom: 60px; /* Margen entre filas */
+    margin-bottom: 60px; /* Margen entre filas */
 }
 
 .gap {
-  gap: 70px; /* Espacio entre columnas */
+    gap: 70px; /* Espacio entre columnas */
 }
 
 .paciente {
-  background-color: #f2f2f2;
+    background-color: #f2f2f2;
 }
 
 .container-paciente {
-  margin-top: 80px;
-  font-size: 1.2rem;
+    margin-top: 80px;
+    font-size: 1.2rem;
 }
 
 .img-option {
-  width: 40px;
-  filter: opacity(90%);
+    width: 40px;
+    filter: opacity(90%);
 }
 
 .container-paciente div a {
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .turno-container {
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .container-paciente div a:hover {
-  transform: scale(1.06);
+    transform: scale(1.06);
 }
 .turno-container:hover {
-  transform: scale(1.03);
+    transform: scale(1.03);
 }
 
 .row-turnos {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .misturnos-paciente {
-  background-color: #f2f2f2;
+    background-color: #f2f2f2;
 }
 
 .event-schedule-area .tab-area .tab-content .table {
-  margin-bottom: 0;
-  width: 80%;
+    margin-bottom: 0;
+    width: 80%;
 }
 .event-schedule-area .tab-area .tab-content .table thead td,
 .event-schedule-area .tab-area .tab-content .table thead th {
-  border-bottom-width: 1px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #252525;
+    border-bottom-width: 1px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #252525;
 }
 .event-schedule-area .tab-area .tab-content .table td,
 .event-schedule-area .tab-area .tab-content .table th {
-  border: 1px solid #b7b7b7;
-  padding-left: 30px;
+    border: 1px solid #b7b7b7;
+    padding-left: 30px;
 }
 
 .event-schedule-area .tab-area .tab-content .table tbody th p {
-  font-size: 14px;
-  margin: 0;
-  font-weight: normal;
+    font-size: 14px;
+    margin: 0;
+    font-weight: normal;
 }
 
 .event-schedule-area-two .tab-content .table thead {
-  background-color:#d4b9ece3;
-  color: #ffffff;
-  font-size: 20px;
+    background-color: #d4b9ece3;
+    color: #ffffff;
+    font-size: 20px;
 }
 
 .event-schedule-area-two .tab-content .table thead tr th {
-  padding: 20px;
-  border: 0;
+    padding: 20px;
+    border: 0;
 }
 
 .event-schedule-area-two .tab-content .table tbody {
-  background: #fff;
+    background: #fff;
 }
 
 .event-schedule-area-two .tab-content .table tbody tr.inner-box {
-  border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
 }
 .event-schedule-area-two .tab-content .table tbody tr th {
-  border: 0;
-  padding: 20px 20px;
-  vertical-align: middle;
+    border: 0;
+    padding: 20px 20px;
+    vertical-align: middle;
 }
 .event-schedule-area-two .tab-content .table tbody tr th .event-date {
-  color: #252525;
-  text-align: center;
+    color: #252525;
+    text-align: center;
 }
 .event-schedule-area-two .tab-content .table tbody tr th .event-date span {
-  font-size: 50px;
-  line-height: 50px;
-  font-weight: normal;
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: normal;
 }
 .event-schedule-area-two .tab-content .table tbody tr td {
-  padding: 30px 20px;
-  vertical-align: middle;
+    padding: 30px 20px;
+    vertical-align: middle;
+    text-transform: capitalize;
 }
 
-.event-schedule-area-two .tab-content .table tbody tr td .event-wrap .time span {
-  color: #252525;
+.event-schedule-area-two
+    .tab-content
+    .table
+    tbody
+    tr
+    td
+    .event-wrap
+    .time
+    span {
+    color: #252525;
 }
 
 .event-schedule-area-two .container {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 .table {
-  border-spacing: 0;
-  border-radius: 13px;
-  overflow: hidden;
+    border-spacing: 0;
+    border-radius: 13px;
+    overflow: hidden;
 }
 
 /*Perfil Paciente*/
 
 .main-body {
-  padding: 15px;
+    padding: 15px;
 }
 .card {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 0 solid rgba(0, 0, 0, 0.125);
-  border-radius: 13px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 13px;
 }
 
 .card-body {
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 2.2rem;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 2.2rem;
 }
 
 .gutters-sm {
-  margin-right: -8px;
-  margin-left: -8px;
+    margin-right: -8px;
+    margin-left: -8px;
 }
 
 .gutters-sm > .col,
 .gutters-sm > [class*="col-"] {
-  padding-right: 8px;
-  padding-left: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
 }
 .mb-3,
 .my-3 {
-  margin-bottom: 1rem !important;
+    margin-bottom: 1rem !important;
 }
 
 .bg-gray-300 {
-  background-color: #e2e8f0;
+    background-color: #e2e8f0;
 }
 .h-100 {
-  height: 100% !important;
+    height: 100% !important;
 }
 .shadow-none {
-  box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 .container-perfilpaciente {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 .container-perfilpaciente .row {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 .cuadroAnuncios {
-  background-color: #ffffff;
-  padding-top: 30px; /* Espaciado interno */
-  padding-bottom: 10px;
-  border-radius: 12px; /* Bordes redondeados */
-  box-shadow: 0px 0px 18px rgb(0 0 0 / 9%);
-  color: #000 !important;
+    background-color: #ffffff;
+    padding-top: 30px; /* Espaciado interno */
+    padding-bottom: 10px;
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0px 0px 18px rgb(0 0 0 / 9%);
+    color: #000 !important;
 }
 
-.cuadroAnuncios .card:hover{
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
+.cuadroAnuncios .card:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 .carouseTexto {
-  position: absolute;
-  top: 0; /* Coloca el texto en la parte superior */
-  left: 0; /* Coloca el texto en la parte izquierda */
-  background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente */
-  padding: 20px;
-  color: #000; /* Color del texto */
-  text-align: center; /* Centra el texto horizontalmente */
+    position: absolute;
+    top: 0; /* Coloca el texto en la parte superior */
+    left: 0; /* Coloca el texto en la parte izquierda */
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente */
+    padding: 20px;
+    color: #000; /* Color del texto */
+    text-align: center; /* Centra el texto horizontalmente */
 }
