@@ -61,10 +61,11 @@
                     <hr />
                     <div class="row">
                         <div class="col-sm-12">
-                            <a class="btn btn-outline-success" href="{{ route('pacientes.edit', $paciente->id_paciente) }}">
+                            <a class="btn btn-outline-success"
+                                href="{{ route('pacientes.edit', $paciente->id_paciente) }}">
                                 Editar información personal
                             </a>
-                            <a class="btn btn-outline-primary mt-2" href="{{ route('users.edit', Auth::user()->id) }}">
+                            <a class="btn btn-outline-success mx-3" href="{{ route('users.edit', Auth::user()->id) }}">
                                 Editar datos de cuenta
                             </a>
                         </div>
