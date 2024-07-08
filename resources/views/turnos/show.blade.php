@@ -1,6 +1,7 @@
 @extends('layout.plantilla')
-@section('title', 'Pacientes')
+@section('title', 'Mis Turnos')
 @section('content')
 <div class="container">
-    
+   
 </div>
+@endsection

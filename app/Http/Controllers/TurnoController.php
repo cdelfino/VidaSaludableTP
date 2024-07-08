@@ -57,7 +57,13 @@ class TurnoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // busca el turno por id
+        $turno = Turno::where('id_turno', $id)
+            ->where('id_paciente', auth()->user()->id) // toma el id del usuario logueado y autenticado
+            ->with('medico')
+            ->firstOrFail();
+
+        return view('turnos.show', compact('turno'));
     }
 
     /**

@@ -10,10 +10,10 @@ class Rol extends Model
     use HasFactory;
     protected $table = 'roles';
     protected $fillable = ['nombre_rol'];
-    
+
     //Relacion uno a muchos con usuarios
-    public function usuarios()
+    public function users()
     {
-        return $this->hasMany(Usuario::class, 'id_rol', 'id');
+        return $this->hasMany(User::class, 'id_rol', 'id');
     }
 }
