@@ -9,11 +9,12 @@ class Rol extends Model
 {
     use HasFactory;
     protected $table = 'roles';
-    protected $fillable = ['nombre_rol'];
+    protected $fillable = ['id_rol', 'nombre_rol'];
+    protected $primaryKey = 'id_rol'; 
 
     //Relacion uno a muchos con usuarios
     public function users()
     {
-        return $this->hasMany(User::class, 'id_rol', 'id');
+        return $this->hasMany(User::class, 'id_rol', 'id_rol');
     }
 }

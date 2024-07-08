@@ -16,15 +16,17 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = 'users';
     protected $fillable = [
         'name',
         'email',
         'password',
+        'id_rol',
     ];
     //relacion uno a muchos con roles
-    public function roles()
+    public function rol()
     {
-        $this->belongsTo(Rol::class, 'id_rol', 'id');
+        $this->belongsTo(Rol::class, 'id_rol', 'id_rol');
     }
 
     /**

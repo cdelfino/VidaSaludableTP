@@ -16,7 +16,8 @@
         </a>
     </div>
     <div class="row gap">
-        <a href="miPerfil.html" class="col option d-flex flex-column justify-content-center">
+        <a href="{{ route('pacientes.show', Auth::user()->id) }}"
+            class="col option d-flex flex-column justify-content-center">
             <img src="{{ asset('imagenes/usuario.png') }}" class="img-option py-2" alt="Perfil" />
             <p>Mi perfil</p>
         </a>

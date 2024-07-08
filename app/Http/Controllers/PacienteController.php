@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Paciente;
+use Illuminate\Support\Facades\Auth;
 
 class PacienteController extends Controller
 {
@@ -15,10 +16,6 @@ class PacienteController extends Controller
     {
         $pacientes = Paciente::all();
         return view('pacientes.index', compact('pacientes'));
-
-        // $usuarios = Usuario::all();
-        // $rol = $usuarios->rol;
-        // $rol = $nombre_rol;
     }
 
     /**
@@ -61,18 +58,32 @@ class PacienteController extends Controller
      */
     public function show($id)
     {
-        $paciente = Paciente::findOrFail($id);
+        $paciente = Paciente::find($id);
+        //solo el paciente dueño del perfil puede ver los detalles de su perfil
+        if (!$paciente || $paciente->id_paciente !== Auth::user()->id) {
+            abort(403, 'No tienes permiso para ver este perfil');
+        }
+
         return view('pacientes.show', compact('paciente'));
     }
+
 
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $paciente = Paciente::find($id);
+
+        // verificar permisos
+        if (!$paciente || $paciente->id_paciente !== Auth::user()->id) {
+            abort(403, 'No tienes permiso para editar este perfil');
+        }
+
+        return view('pacientes.edit', compact('paciente'));
     }
+
 
     /**
      * Update the specified resource in storage.
