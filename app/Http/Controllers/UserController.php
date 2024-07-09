@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /**
@@ -46,9 +46,14 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
+
+        // verificar permisos
+        if (!$user || $user->id !== Auth::user()->id) {
+            abort(403, 'No tienes permiso para editar este perfil');
+        }
+
         return view('users.edit', compact('user'));
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -61,6 +66,9 @@ class UserController extends Controller
         ]);
 
         $user = User::findOrFail($id);
+        if (!$user || $user->id !== Auth::user()->id) {
+            abort(403, 'No tienes permiso para editar este perfil');
+        }
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         if ($request->filled('password')) {

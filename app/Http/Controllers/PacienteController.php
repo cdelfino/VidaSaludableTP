@@ -59,7 +59,7 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente = Paciente::find($id);
-        //solo el paciente dueño del perfil puede ver los detalles de su perfil
+        // solo el paciente dueño del perfil puede ver los detalles de su perfil
         if (!$paciente || $paciente->id_paciente !== Auth::user()->id) {
             abort(403, 'No tienes permiso para ver este perfil');
         }
@@ -88,11 +88,33 @@ class PacienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $request->validate([
+            'nombre' => 'required|string|max:30',
+            'apellido' => 'required|string|max:30',
+            'email' => 'nullable|email|max:255|unique:pacientes,email,' . $id . ',id_paciente',
+            'fecha_nacimiento' => 'nullable|date',
+            'direccion' => 'nullable|string|max:45',
+            'telefono' => 'nullable|string',
+        ]);
 
+        $paciente = Paciente::find($id);
+
+        if (!$paciente || $paciente->id_paciente !== Auth::user()->id) {
+            abort(403, 'No tienes permiso para editar este perfil');
+        }
+
+        $paciente->nombre = $request->nombre;
+        $paciente->apellido = $request->apellido;
+        $paciente->email = $request->email;
+        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
+        $paciente->direccion = $request->direccion;
+        $paciente->telefono = $request->telefono;
+        $paciente->save();
+
+        return redirect()->route('pacientes.show', $paciente->id_paciente)->with('success', 'Datos actualizados exitosamente.');
+    }
     /**
      * Remove the specified resource from storage.
      */
