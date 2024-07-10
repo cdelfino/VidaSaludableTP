@@ -55,15 +55,18 @@ class TurnoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id)//mostrar turnos en vista medico
     {
         // busca el turno por id
-        $turno = Turno::where('id_turno', $id)
-            ->where('id_paciente', auth()->user()->id) // toma el id del usuario logueado y autenticado
-            ->with('medico')
-            ->firstOrFail();
 
-        return view('turnos.show', compact('turno'));
+        //aca flta verificr si el user logueado es un medico
+        $medicoId = auth()->user()->id;
+        $turnos = Turno::where('id_medico', $medicoId)->with('paciente')->get();
+        $days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
+        $hours = ['08:00', '09:00', '10:00', '11:00', '12:00'];
+
+        return view('turnos.show', compact('turnos', 'days', 'hours'));
+
     }
 
     /**

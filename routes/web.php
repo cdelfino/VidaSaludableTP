@@ -24,6 +24,8 @@ Route::resource('historiasclinicas', HistoriaClinicaController::class)->paramete
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Rutas user
 Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::put('users/{user}', [UserController::class, 'update'])->name('users.update');
 Route::get('pacientes/{id}', [PacienteController::class, 'show'])->name('pacientes.show');
@@ -42,3 +44,13 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout')->middl
 Route::get('historiasclinicas/{historiaclinica}', [HistoriaClinicaController::class, 'show'])->name('historiasclinicas.show');
 Route::get('historiasclinicas/{historiaclinica}/edit', [HistoriaClinicaController::class, 'edit'])->name('historiasclinicas.edit');
 Route::put('historiasclinicas/{historiaclinica}', [HistoriaClinicaController::class, 'update'])->name('historiasclinicas.update');
+
+// Rutas para medico
+Route::get('medicos/{medico}', [MedicoController::class, 'show'])->name('medicos.show');
+Route::get('medicos/{id}/edit', [MedicoController::class, 'edit'])->name('medicos.edit');
+
+//Rutas turnos
+Route::get('turnos/medico', [TurnoController::class, 'show'])->name('turnos.show');
+
+// Rutas para mostrar turnos de un médico
+Route::get('medicos/{medico}/turnos', [TurnoController::class, 'show'])->name('turnos.show');

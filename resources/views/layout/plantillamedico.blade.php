@@ -17,9 +17,11 @@
 
 <body>
     <nav class="navbar navbar-expand-lg bannesColorDoctorArriba">
-        <div class="container-fluid ">
+        <div class="container-fluid">
             <div class="navbar-collapse collapse justify-content-end" id="navbarText">
-                <a class="marca" href="index.html"><img src="imagenes/icono.png" alt=""> VidaSaludable</a>
+                <a class="marca" href="{{ route('medicos.index') }}"><img src="{{ asset('imagenes/icono.png') }}"
+                        alt="">
+                    VidaSaludable</a>
                 <span class="navbar-text">
                     Médico
                 </span>
@@ -33,11 +35,15 @@
 
     <!-- Menú lateral -->
     <div class="sidebar" id="sidebar">
-        <a href="doctor.html" onclick="toggleSidebar()">Inicio</a>
-        <a href="perfilDoctor.html" onclick="toggleSidebar()">Perfil</a>
-        <a href="historialMedico.html" onclick="toggleSidebar()">Historial Médico</a>
-        <a href="verTurnosDoctor.html" onclick="toggleSidebar()">Turnos</a>
-        <a href="index.html" onclick="toggleSidebar()">Cerrar Sesión</a>
+        <a href="{{ route('medicos.index') }}" onclick="toggleSidebar()">Inicio</a>
+        <a href="{{ route('medicos.show', auth()->user()->id) }}" onclick="toggleSidebar()">Perfil</a>
+        <a href="{{ route('historiasclinicas.index') }}" onclick="toggleSidebar()">Historial Médico</a>
+        <a href="{{ route('turnos.show', auth()->user()->id) }}" onclick="toggleSidebar()">Turnos</a>
+        <a href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
     </div>
 
     <!-- Función para alternar la visibilidad del menú lateral -->
@@ -46,19 +52,6 @@
         function toggleSidebar() {
             var sidebar = document.getElementById("sidebar");
             sidebar.classList.toggle("active");
-        }
-
-        /* Función para las secciones del menú */
-        function mostrarSeccion(seccion) {
-            var secciones = ["perfil", "historialMedico", "turnos", "cerrarSesion"];
-            secciones.forEach(function (item) {
-                var element = document.getElementById(item);
-                if (item === seccion) {
-                    element.style.display = "block";
-                } else {
-                    element.style.display = "none";
-                }
-            });
         }
     </script>
 </body>
