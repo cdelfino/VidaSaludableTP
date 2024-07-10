@@ -35,7 +35,7 @@
         <!-- Menú lateral -->
         <div class="sidebar" id="sidebar">
             <a href="{{ route('pacientes.index') }}">Inicio</a>
-            <a href="miPerfil.html">Mi perfil</a>
+            <a href="{{ route('pacientes.show', Auth::user()->id) }}">Mi perfil</a>
             <a href="{{ route('turnos.create') }}">Solicitar un turno</a>
             <a href="{{ route('turnos.index') }}">Mis turnos</a>
             <a href="index.html">Cerrar sesión</a>

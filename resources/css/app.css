@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-
 html,
 body {
     scroll-behavior: smooth;
@@ -28,7 +26,7 @@ body {
 }
 
 header {
-    background-image: url(imagenes/bannerSuperior.png);
+    background-image: url("/imagenes/bannerSuperior.png");
     background-size: cover;
     background-position: center;
     height: 45vh;
@@ -65,7 +63,7 @@ h2 {
     opacity: 0.5;
 }
 .aqua {
-    background-image: url(imagenes/bannerVerde.png);
+    background-image: url("/imagenes/bannerVerde.png");
     background-size: cover;
     background-position: center;
     margin-top: 10vh;
@@ -87,8 +85,6 @@ h2 {
     text-decoration: none;
     color: #000 !important;
     padding-right: 20px;
-    display: flex;
-    align-items: center;
 }
 
 .bannesColorPacienteArriba {
@@ -105,7 +101,7 @@ h2 {
     margin-left: 10%;
 }
 .lila {
-    background-image: url(imagenes/bannerLila.png);
+    background-image: url("/imagenes/bannerLila.png");
     background-size: cover;
     background-position: center;
     margin-top: 10vh;
@@ -133,7 +129,7 @@ footer {
     color: rgb(116, 110, 119);
 }
 
-/*tabla calendario de turnos del doctor*/
+/* Tabla calendario de turnos del doctor */
 
 .calendario-tabla table thead tr {
     background: #89d8c9;
@@ -237,7 +233,7 @@ footer {
     opacity: 1;
 }
 
-/*historial médico*/
+/* Historial médico */
 .buscador {
     margin: 50px;
 }
@@ -303,391 +299,14 @@ footer {
     .calendario-tabla table tbody td.active p {
         font-size: 14px;
     }
+    .calendario-tabla table tbody td.dia {
+        font-size: 16px;
+        min-width: 130px;
+    }
+    .calendario-tabla table tbody td .hover span {
+        font-size: 16px;
+    }
     .calendario-tabla table tbody td .hover {
         padding: 10px 0;
     }
-    .calendario-tabla table tbody td.dia {
-        font-size: 18px;
-    }
-    .calendario-tabla table tbody td .hover span {
-        font-size: 15px;
-    }
-}
-@media screen and (max-width: 575px) {
-    .calendario-tabla table tbody td.dia {
-        min-width: 135px;
-    }
-}
-
-/*Este es el formulario para iniciar sesion y registrarse c:*/
-
-.registro {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f1f1f1;
-}
-
-.container-loggin {
-    display: flex;
-    flex-direction: row;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 20px;
-    position: relative;
-}
-
-.login-form {
-    flex: 1.5;
-    padding: 40px;
-    background-color: #ffffff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.login-form h2 {
-    margin-bottom: 20px;
-}
-
-.login-form input[type="text"],
-.login-form input[type="email"],
-.login-form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-}
-
-.botonLoggin {
-    width: 100%;
-    padding: 10px;
-    background-color: #e47dfd;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.botonLoggin:hover {
-    background-color: #00b392;
-}
-
-.image-container {
-    display: none;
-}
-
-.volver-btn {
-    position: absolute;
-    top: -50px;
-    z-index: 1;
-}
-
-.volver-btn-iniciarsesion {
-    color: #198754;
-    top: -50px;
-    z-index: 1;
-}
-
-/*MEDIAAAAAAAAAAAAAAA-------------------------------------------*/
-@media (min-width: 768px) {
-    .image-container {
-        display: block;
-        flex: 1;
-        background-image: url("imagenes/nosotros1.jpg");
-        background-size: cover;
-        background-position: center;
-    }
-    .image-container-registro {
-        display: block;
-        flex: 1;
-        background-image: url("imagenes/nosotros4.jpg");
-        background-size: cover;
-        background-position: center;
-    }
-}
-
-/* Menu desplegable */
-.sidebar {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: -250px;
-    background-color: #111;
-    transition: left 0.5s ease;
-    padding-top: 80px;
-}
-
-.sidebar a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidebar a:hover {
-    color: #f1f1f1;
-}
-
-/* Boton menu */
-.open-btn {
-    font-size: 30px;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    color: #818181;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 999;
-}
-
-.open-btn:hover {
-    color: #f1f1f1;
-}
-
-/* Mostrar el menú abierto */
-.sidebar.active {
-    left: 0;
-}
-
-/* Menú cuando se esta usando */
-.sidebar:hover {
-    left: 0;
-}
-
-.contenido {
-    position: relative;
-    padding-left: 50px;
-    padding-right: 50px;
-}
-
-.option {
-    height: 180px;
-    width: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 18px rgb(0 0 0 / 9%);
-}
-
-/* Agrega espacio entre columnas */
-.row {
-    margin-bottom: 60px; /* Margen entre filas */
-}
-
-.gap {
-    gap: 70px; /* Espacio entre columnas */
-}
-
-.paciente {
-    background-color: #f2f2f2;
-}
-
-.container-paciente {
-    margin-top: 80px;
-    font-size: 1.2rem;
-}
-
-.img-option {
-    width: 40px;
-    filter: opacity(90%);
-}
-
-.container-paciente div a {
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.turno-container {
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.container-paciente div a:hover {
-    transform: scale(1.06);
-}
-.turno-container:hover {
-    transform: scale(1.03);
-}
-
-.row-turnos {
-    margin-bottom: 30px;
-}
-
-.misturnos-paciente {
-    background-color: #f2f2f2;
-}
-
-.event-schedule-area .tab-area .tab-content .table {
-    margin-bottom: 0;
-    width: 80%;
-}
-.event-schedule-area .tab-area .tab-content .table thead td,
-.event-schedule-area .tab-area .tab-content .table thead th {
-    border-bottom-width: 1px;
-    font-size: 20px;
-    font-weight: 600;
-    color: #252525;
-}
-.event-schedule-area .tab-area .tab-content .table td,
-.event-schedule-area .tab-area .tab-content .table th {
-    border: 1px solid #b7b7b7;
-    padding-left: 30px;
-}
-
-.event-schedule-area .tab-area .tab-content .table tbody th p {
-    font-size: 14px;
-    margin: 0;
-    font-weight: normal;
-}
-
-.event-schedule-area-two .tab-content .table thead {
-    background-color: #d4b9ece3;
-    color: #ffffff;
-    font-size: 20px;
-}
-
-.event-schedule-area-two .tab-content .table thead tr th {
-    padding: 20px;
-    border: 0;
-}
-
-.event-schedule-area-two .tab-content .table tbody {
-    background: #fff;
-}
-
-.event-schedule-area-two .tab-content .table tbody tr.inner-box {
-    border-bottom: 1px solid #dee2e6;
-}
-.event-schedule-area-two .tab-content .table tbody tr th {
-    border: 0;
-    padding: 20px 20px;
-    vertical-align: middle;
-}
-.event-schedule-area-two .tab-content .table tbody tr th .event-date {
-    color: #252525;
-    text-align: center;
-}
-.event-schedule-area-two .tab-content .table tbody tr th .event-date span {
-    font-size: 50px;
-    line-height: 50px;
-    font-weight: normal;
-}
-.event-schedule-area-two .tab-content .table tbody tr td {
-    padding: 30px 20px;
-    vertical-align: middle;
-    text-transform: capitalize;
-}
-
-.event-schedule-area-two
-    .tab-content
-    .table
-    tbody
-    tr
-    td
-    .event-wrap
-    .time
-    span {
-    color: #252525;
-}
-
-.event-schedule-area-two .container {
-    margin-top: 40px;
-}
-.table {
-    border-spacing: 0;
-    border-radius: 13px;
-    overflow: hidden;
-}
-
-/*Perfil Paciente*/
-
-.main-body {
-    padding: 15px;
-}
-.card {
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 0 solid rgba(0, 0, 0, 0.125);
-    border-radius: 13px;
-}
-
-.card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 2.2rem;
-}
-
-.gutters-sm {
-    margin-right: -8px;
-    margin-left: -8px;
-}
-
-.gutters-sm > .col,
-.gutters-sm > [class*="col-"] {
-    padding-right: 8px;
-    padding-left: 8px;
-}
-.mb-3,
-.my-3 {
-    margin-bottom: 1rem !important;
-}
-
-.bg-gray-300 {
-    background-color: #e2e8f0;
-}
-.h-100 {
-    height: 100% !important;
-}
-.shadow-none {
-    box-shadow: none !important;
-}
-
-.container-perfilpaciente {
-    margin-top: 30px;
-}
-.container-perfilpaciente .row {
-    margin-bottom: 0;
-}
-.cuadroAnuncios {
-    background-color: #ffffff;
-    padding-top: 30px; /* Espaciado interno */
-    padding-bottom: 10px;
-    border-radius: 12px; /* Bordes redondeados */
-    box-shadow: 0px 0px 18px rgb(0 0 0 / 9%);
-    color: #000 !important;
-}
-
-.cuadroAnuncios .card:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
-
-.carouseTexto {
-    position: absolute;
-    top: 0; /* Coloca el texto en la parte superior */
-    left: 0; /* Coloca el texto en la parte izquierda */
-    background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente */
-    padding: 20px;
-    color: #000; /* Color del texto */
-    text-align: center; /* Centra el texto horizontalmente */
 }

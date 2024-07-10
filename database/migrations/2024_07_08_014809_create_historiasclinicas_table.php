@@ -12,8 +12,12 @@ return new class extends Migration {
     {
         Schema::create('historiasclinicas', function (Blueprint $table) {
             $table->id('id_historiaclinica');
-            $table->string('diagnostico');
-            $table->string('tratamiento');
+            $table->text('tratamiento');
+            $table->text('antecedentes_familiares');
+            $table->text('antecedentes_medicos');
+            $table->text('examen_fisico');
+            $table->text('diagnostico');
+            $table->text('derivaciones');
             $table->foreignId('id_medico')->constrained('medicos', 'id_medico');
             $table->foreignId('id_paciente')->constrained('pacientes', 'id_paciente');
             $table->timestamps();

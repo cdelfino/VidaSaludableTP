@@ -1,4 +1,4 @@
-@extends('layout.plantilla')
+@extends('layout.plantillamedico')
 @section('title', 'Turnos')
 @section('content')
 <div class="container">
