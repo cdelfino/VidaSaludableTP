@@ -5,10 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Paciente;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+
 
 class PacienteController extends Controller
 {
+    protected $userController;
+
+    public function __construct(UserController $userController)
+    {
+        $this->userController = $userController;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -23,7 +31,7 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        return view('pacientes.create');
+        return view('pacientes.register-paciente');
     }
 
     /**
@@ -31,27 +39,23 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre' => 'required|string|max:30',
-            'apellido' => 'required|string|max:30',
-            'email' => 'nullable|email|max:255|unique:pacientes,email',
-            'fecha_nacimiento' => 'nullable|date',
-            'direccion' => 'nullable|string|max:45',
-            'telefono' => 'nullable|string',
+        $request->validate(['nombre' => 'required|string|max:30', 'apellido' => 'required|string|max:30', 'dni' => ['required', 'string', 'max:20'], 'fecha_nacimiento' => 'nullable|date', 'direccion' => 'nullable|string|max:45', 'telefono' => 'nullable|string', 'obra_social' => 'required|string|max:255',]);
+
+        Paciente::create([
+            'nombre' => $request->nombre,
+            'apellido' => $request->apellido,
+            'dni' => $request->dni,
+            'fecha_nacimiento' => $request->fecha_nacimiento,
+            'direccion' => $request->direccion,
+            'telefono' => $request->telefono,
+            'obra_social' => $request->obra_social,
+            'user_id' => auth()->user()->id,
         ]);
 
-        $paciente = new Paciente();
-        $paciente->nombre = $request->nombre;
-        $paciente->apellido = $request->apellido;
-        $paciente->email = $request->email;
-        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
-        $paciente->direccion = $request->direccion;
-        $paciente->telefono = $request->telefono;
-        $paciente->save();
+        $this->userController->updateRole($request, auth()->user());
 
-        return redirect()->route('pacientes.index')->with('success', 'Paciente creado exitosamente.');
+        return redirect('/pacientes');
     }
-
 
     /**
      * Display the specified resource.

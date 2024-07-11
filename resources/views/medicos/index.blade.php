@@ -1,20 +1,19 @@
-@extends('layout.plantillamedico')
-@section('title', 'Medico')
+@extends('layouts.app')
+@extends('layouts.plantillabarra')
 @section('content')
 <section class="container container-paciente sectionindex">
     <div class="row gap">
-        @foreach ($medicos as $medico)
-            <a href="{{ route('historiasclinicas.index', $medico->id_medico) }}"
-                class="col option d-flex flex-column justify-content-center">
-                <img src="imagenes/estetoscopio.png" class="img-option py-2" alt="Perfil" />
-                <p>Historiales médicos</p>
-            </a>
-            <a href="{{ route('turnos.show', $medico->id_medico) }}"
-                class="col option d-flex flex-column justify-content-center">
-                <img src="imagenes/tiempo.png" class="img-option py-2" alt="Perfil" />
-                <p>Turnos</p>
-            </a>
-        @endforeach
+
+        <a href="{{ route('historiasclinicas.index') }}" class="col option d-flex flex-column justify-content-center">
+            <img src="imagenes/estetoscopio.png" class="img-option py-2" alt="Perfil" />
+            <p>Historiales médicos</p>
+        </a>
+        <a href="{{ route('turnos.show', $medico->id_medico) }}"
+            class="col option d-flex flex-column justify-content-center">
+            <img src="imagenes/tiempo.png" class="img-option py-2" alt="Perfil" />
+            <p>Turnos</p>
+        </a>
+
     </div>
     <div class="row gap">
         <a href="{{ route('medicos.show', $medico->id_medico) }}"

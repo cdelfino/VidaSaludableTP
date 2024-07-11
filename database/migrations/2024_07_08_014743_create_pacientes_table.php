@@ -14,10 +14,12 @@ return new class extends Migration {
             $table->id('id_paciente');
             $table->string('nombre');
             $table->string('apellido');
+            $table->string('dni');
             $table->date('fecha_nacimiento');
             $table->string('direccion');
             $table->string('telefono');
-            $table->string('email')->unique();
+            $table->string('obra_social');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

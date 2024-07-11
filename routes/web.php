@@ -54,3 +54,17 @@ Route::get('turnos/medico', [TurnoController::class, 'show'])->name('turnos.show
 
 // Rutas para mostrar turnos de un médico
 Route::get('medicos/{medico}/turnos', [TurnoController::class, 'show'])->name('turnos.show');
+
+
+Route::get('/seleccionar-rol', function () {
+    return view('seleccionar-rol');
+})->name('seleccionar-rol');
+
+
+Route::get('register-doctor', [App\Http\Controllers\MedicoController::class, 'create'])->name('register-doctor');
+Route::get('register-paciente', [App\Http\Controllers\PacienteController::class, 'create'])->name('register-paciente');
+
+Route::post('register-doctor', [App\Http\Controllers\MedicoController::class, 'store'])->name('medicos.store');
+Route::post('register-paciente', [App\Http\Controllers\PacienteController::class, 'store'])->name('pacientes.store');
+
+Route::post('user/update-role/{user}', [UserController::class, 'updateRole'])->name('user.updateRole');

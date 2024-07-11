@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+
 class UserController extends Controller
 {
     /**
@@ -63,7 +64,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'password' => 'nullable|string|min:8|confirmed',
-            
+
         ]);
 
         $user = User::findOrFail($id);
@@ -87,4 +88,11 @@ class UserController extends Controller
     {
         //
     }
+    public function updateRole(Request $request, User $user)
+    {
+        $user->id_rol = 2;
+        $user->update();
+        return redirect()->route('home');
+    }
+
 }

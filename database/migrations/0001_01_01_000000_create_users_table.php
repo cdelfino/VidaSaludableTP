@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('id_rol')->constrained('roles', 'id_rol')->default(1);
+            $table->foreignId('id_rol')->default(3)->constrained('roles', 'id_rol');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -35,6 +35,11 @@ return new class extends Migration {
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+        
+        DB::table('users')->insert([
+            ['name' => 'Administrador', 'email' => 'admin@gmail.com', 'password' => '$2y$12$xQ6tvwBR88z8.VrxRyTgyeRo.5wE1fFoyuA14eKfKHjMQrqbfkNHS', 'id_rol' => 1],
+
+        ]);
     }
 
     /**

@@ -1,4 +1,5 @@
-@extends('layout.plantillamedico')
+@extends('layouts.app')
+@extends('layouts.plantillabarra')
 
 @section('title', 'Perfil del Paciente')
 
@@ -65,8 +66,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
     </div>
 </section>
 

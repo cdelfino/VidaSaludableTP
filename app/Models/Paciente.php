@@ -11,8 +11,12 @@ class Paciente extends Model
 
     protected $table = 'pacientes';
     protected $primaryKey = 'id_paciente';
-    protected $fillable = ['nombre', 'apellido', 'fecha_nacimiento', 'direccion', 'telefono', 'email'];
-    //aca dberian ir los campos not null con protected $fillable
+    protected $fillable = ['nombre', 'apellido', 'dni', 'fecha_nacimiento', 'direccion', 'telefono', 'obra_social', 'user_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }   
 
     //relacion uno a muchos, un paciente puede tener muchos turnos
     public function turnos()

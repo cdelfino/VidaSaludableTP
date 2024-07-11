@@ -7,6 +7,8 @@ use App\Models\Medico;
 use Illuminate\Http\Request;
 use App\Models\HistoriaClinica;
 use App\Models\Paciente;
+use Illuminate\Support\Facades\Auth;
+
 
 class HistoriaClinicaController extends Controller
 {
@@ -18,11 +20,12 @@ class HistoriaClinicaController extends Controller
 
     public function create()
     {
-        $paciente = Paciente::all();
-        $medico = Medico::all();
-        return view('historiasclinicas.create', compact('paciente', 'medico'));//cuando tengamos conecado el user a medico, pasar ell auth id.
-    }
+        $user = Auth::user();
+        $medico = Medico::where('user_id', $user->id)->first();
+        $pacientes = Paciente::all();
 
+        return view('historiasclinicas.create', compact('pacientes', 'medico'));
+    }
     public function store(Request $request)
     {
         $validated = $request->validate([

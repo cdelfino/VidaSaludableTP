@@ -18,8 +18,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="medico" class="form-label">Seleccione un médico:</label>
-                    <input type="text" name="id_medico" id="medico" class="form-control" value="1" required>
+                    <input type="hidden" name="id_medico" id="medico" class="form-control"
+                        value="{{ Auth::user()->id }}" required>
                     @error('id_medico')
                         <div class="text-danger mt-2">{{ $message }}</div>
                     @enderror

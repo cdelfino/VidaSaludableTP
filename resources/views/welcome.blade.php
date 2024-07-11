@@ -36,7 +36,12 @@
                 <form class="d-flex">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/home') }}" class="btn btn-outline-success espacio" role="button">Home</a>
+                            @if (Auth::user()->id_rol == 2)
+                                <a href="{{ url('/medicos') }}" class="btn btn-outline-success espacio" role="button">Dashboard</a>
+                            @elseif (Auth::user()->id_rol == 3)
+                                <a href="{{ url('/pacientes') }}" class="btn btn-outline-success espacio"
+                                    role="button">Dashboard</a>
+                            @endif
                         @else
                             <a href="{{ route('login') }}" class="btn btn-outline-success espacio" role="button">Iniciar
                                 sesión</a>

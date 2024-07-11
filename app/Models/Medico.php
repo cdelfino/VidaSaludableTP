@@ -9,7 +9,7 @@ class Medico extends Model
 {
     use HasFactory;
     protected $table = 'medicos';
-    protected $fillable = ['nombre', 'apellido', 'especialidad', 'telefono'];
+    protected $fillable = ['nombre', 'apellido', 'dni', 'fecha_nacimiento', 'especialidad', 'matricula', 'telefono', 'user_id'];
     protected $primaryKey = 'id_medico';
     //relacion uno a muchos con turnos
     public function turnos()
@@ -21,5 +21,9 @@ class Medico extends Model
     public function historiaClinica()
     {
         return $this->hasMany(HistoriaClinica::class, 'id_medico');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

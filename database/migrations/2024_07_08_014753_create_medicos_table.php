@@ -14,8 +14,12 @@ return new class extends Migration {
             $table->id('id_medico');
             $table->string('nombre');
             $table->string('apellido');
+            $table->string('dni');
+            $table->date('fecha_nacimiento');
             $table->string('especialidad');
+            $table->string('matricula');
             $table->string('telefono');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
