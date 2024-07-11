@@ -1,4 +1,5 @@
-@extends('layout.plantillapaciente')
+@extends('layouts.app')
+@extends('layouts.plantillabarra')
 @section('title', 'Editar Información Personal')
 @section('content')
 
@@ -28,15 +29,6 @@
             </div>
 
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-control"
-                    value="{{ old('email', $paciente->email) }}">
-                @error('email')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
                 <label for="fecha_nacimiento" class="form-label"><i class="far fa-calendar-alt me-2"></i>Fecha de
                     Nacimiento</label>
                 <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control"
@@ -54,7 +46,21 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-
+            <div class="mb-3">
+                <label for="dni" class="form-label">Teléfono</label>
+                <input type="text" id="dni" name="dni" class="form-control" value="{{ old('dni', $paciente->dni) }}">
+                @error('dni')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="obra_social" class="form-label">Teléfono</label>
+                <input type="text" id="obra_social" name="obra_social" class="form-control"
+                    value="{{ old('obra_social', $paciente->obra_social) }}">
+                @error('dni')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
             <div class="mb-3">
                 <label for="direccion" class="form-label">Dirección</label>
                 <input type="text" id="direccion" name="direccion" class="form-control"
@@ -63,6 +69,7 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
+
 
             <div class="text-center">
                 <input type="submit" value="Guardar Cambios" class="btn btn-outline-success">

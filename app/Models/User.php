@@ -23,6 +23,10 @@ class User extends Authenticatable
         'password',
         'id_rol',
     ];
+    public function paciente()
+    {
+        return $this->hasOne(Paciente::class, 'user_id');
+    }
     //relacion uno a muchos con roles
     public function rol()
     {
@@ -38,6 +42,18 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    
+    //funciones para redigir despues
+    public function isPaciente()
+    {
+        return $this->paciente !== null;
+    }
+
+    public function isMedico()
+    {
+        return $this->medico !== null;
+    }
+
 
     /**
      * Get the attributes that should be cast.

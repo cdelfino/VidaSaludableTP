@@ -12,19 +12,34 @@ use Illuminate\Support\Facades\Auth;
 
 class HistoriaClinicaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $historiasclinicas = HistoriaClinica::with('paciente', 'medico')->get();
-        return view('historiasclinicas.index', compact('historiasclinicas'));
-    }
+        /*$historiasclinicas = HistoriaClinica::with('paciente', 'medico')->get();
+        return view('historiasclinicas.index', compact('historiasclinicas'));*/
 
+        $search = $request->input('search');
+
+        $historiasclinicas = HistoriaClinica::with('paciente', 'medico')
+            ->when($search, function ($query, $search) {
+                return $query->whereHas('paciente', function ($query) use ($search) {
+                    $query->where('nombre', $search);
+                });
+            })
+            ->get();
+
+        return view('historiasclinicas.index', compact('historiasclinicas', 'search'));
+    }
+   
     public function create()
     {
         $user = Auth::user();
         $medico = Medico::where('user_id', $user->id)->first();
         $pacientes = Paciente::all();
 
-        return view('historiasclinicas.create', compact('pacientes', 'medico'));
+        return view('historiasclinicas.create', [
+            'pacientes' => $pacientes,
+            'medicoId' => $medico->id_medico
+        ]);
     }
     public function store(Request $request)
     {
@@ -63,11 +78,14 @@ class HistoriaClinicaController extends Controller
     }
     public function edit($id)
     {
+        $user = Auth::user();
+
         $historiaClinica = HistoriaClinica::findOrFail($id);
-        $paciente = Paciente::all();
-        $medico = Medico::all();
-        return view('historiasclinicas.edit', compact('historiaClinica', 'paciente', 'medico'));
+        $pacientes = Paciente::all();
+        $medico = Medico::where('user_id', $user->id)->first();
+        return view('historiasclinicas.edit', ['historiaClinica' => $historiaClinica, 'pacientes' => $pacientes, 'medicoId' => $medico->id_medico]);
     }
+
     public function update(Request $request, $id)
     {
 

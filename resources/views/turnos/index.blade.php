@@ -1,4 +1,5 @@
-@extends('layout.plantillapaciente')
+@extends('layouts.app')
+@extends('layouts.plantillabarra')
 
 @section('title', 'Mis Turnos')
 

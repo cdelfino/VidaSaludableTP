@@ -1,4 +1,5 @@
-@extends('layout.plantillamedico')
+@extends('layouts.app')
+@extends('layouts.plantillabarra')
 @section('title', 'Crear historial clínico')
 
 @section('content')
@@ -8,19 +9,18 @@
             <h2 class="text-center mb-4">Formulario historial clínico</h2>
             <form action="{{ route('historiasclinicas.store') }}" method="POST">
                 @csrf
+                <input type="hidden" name="id_medico" id="medico" class="form-control" value="{{ $medicoId }}">
 
                 <div class="mb-3">
                     <label for="paciente" class="form-label">Seleccione un paciente:</label>
-                    <input type="text" name="id_paciente" id="paciente" class="form-control" value="1" required>
+                    <select name="id_paciente" id="paciente" class="form-control" required>
+                        <option value="">Seleccione un paciente</option>
+                        @foreach ($pacientes as $paciente)
+                            <option value="{{ $paciente->id_paciente }}">{{ $paciente->nombre }} {{ $paciente->apellido }}
+                            </option>
+                        @endforeach
+                    </select>
                     @error('id_paciente')
-                        <div class="text-danger mt-2">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="mb-3">
-                    <input type="hidden" name="id_medico" id="medico" class="form-control"
-                        value="{{ Auth::user()->id }}" required>
-                    @error('id_medico')
                         <div class="text-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>

@@ -36,10 +36,12 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.show', compact('user'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -47,14 +49,12 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-
-        // verificar permisos
-        if (!$user || $user->id !== Auth::user()->id) {
+        if ($user->id !== Auth::user()->id) {
             abort(403, 'No tienes permiso para editar este perfil');
         }
-
         return view('users.edit', compact('user'));
     }
+
     /**
      * Update the specified resource in storage.
      */
@@ -64,21 +64,32 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'password' => 'nullable|string|min:8|confirmed',
-
         ]);
 
         $user = User::findOrFail($id);
-        if (!$user || $user->id !== Auth::user()->id) {
+        if ($user->id !== Auth::user()->id) {
             abort(403, 'No tienes permiso para editar este perfil');
         }
+
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+
         if ($request->filled('password')) {
             $user->password = bcrypt($request->input('password'));
         }
+
         $user->save();
 
-        return redirect()->route('users.edit', $id)->with('success', 'Usuario actualizado con éxito.');
+        if (Auth::user()->id_rol == 2) {
+            return redirect()->route('medicos.index')
+                ->with('success', 'Usuario actualizado con éxito.');
+        } elseif (Auth::user()->id_rol == 3) {
+            return redirect()->route('pacientes.index')
+                ->with('success', 'Usuario actualizado con éxito.');
+        } else {
+            return redirect()->route('home')
+                ->with('success', 'Usuario actualizado con éxito.');
+        }
     }
 
     /**

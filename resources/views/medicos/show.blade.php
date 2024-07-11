@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @extends('layouts.plantillabarra')
-
 @section('title', 'Perfil del Paciente')
 
 @section('content')
@@ -13,9 +12,8 @@
                         <img src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg"
                             alt="Admin" class="rounded-circle" width="150" />
                         <div class="mt-3">
-                            <h4>Bruno Oscar Cano</h4>
-                            <p class="text-secondary mb-1">Doctor</p>
-                            <p class="text-muted font-size-sm">Buenos Aires, Argentina</p>
+                            <h4>{{ $medico->nombre }} {{ $medico->apellido }}</h4>
+                            <p class="text-secondary mb-1">{{$medico->especialidad}}</p>
                             <a class="btn btn-outline-success" href="verTurnosDoctor.html">Ver turnos</a>
                         </div>
                     </div>
@@ -46,15 +44,35 @@
                         <div class="col-sm-9 text-secondary">{{ $medico->telefono }}</div>
                     </div>
                     <hr />
+
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Habilitado en</h6>
+                            <h6 class="mb-0">DNI</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            Buenos Aires, Argentina
+                            <!-- VARIABLE PARA DNI --> soy un dni
                         </div>
                     </div>
                     <hr />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Fecha de nacimiento</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <!-- VARIABLE PARA FECHA --> en esta fecha naci
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Matrícula</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <!-- VARIABLE PARA MATRICULA --> soy una matricula
+                        </div>
+                    </div>
+                    <hr />
+
                     <div class="row">
                         <div class="col-sm-12">
                             <a class="btn btn-outline-success" target="__blank"

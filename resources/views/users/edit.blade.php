@@ -1,4 +1,6 @@
-@extends('layout.plantillapaciente')
+@extends('layouts.app'
+)@extends('layouts.plantillabarra')
+
 @section('title', 'Editar Datos de Cuenta')
 @section('content')
 

@@ -1,4 +1,6 @@
-@extends('layout.plantillapaciente')
+@extends('layouts.app')
+@extends('layouts.plantillabarra')
+
 @section('title', 'Agregar turno')
 @section('content')
 
@@ -7,12 +9,13 @@
         <h2 class="text-center mb-4">Agendar un turno</h2>
         <form action="{{ route('turnos.store') }}" method="post">
             @csrf
-
-            <input type="hidden" name="paciente_id" value="{{ auth()->user()->id }}">
+            <!-- Campo oculto para enviar el id_paciente -->
+            <input type="hidden" name="id_paciente" id="paciente" class="form-control" value="{{ $pacienteId }}"
+                required>
 
             <div class="mb-3">
                 <label for="medico" class="form-label">Seleccione un médico:</label>
-                <select name="medico" id="medico" class="form-select" required>
+                <select name="id_medico" id="medico" class="form-select" required>
                     <option value="">Seleccione un médico</option>
                     @foreach($medicos as $medico)
                         <option value="{{ $medico->id_medico }}" {{ old('medico') == $medico->id_medico ? 'selected' : '' }}>

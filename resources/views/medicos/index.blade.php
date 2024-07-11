@@ -1,26 +1,28 @@
 @extends('layouts.app')
 @extends('layouts.plantillabarra')
+@section('title', 'Dashboard Medico')
+
 @section('content')
 <section class="container container-paciente sectionindex">
     <div class="row gap">
-
         <a href="{{ route('historiasclinicas.index') }}" class="col option d-flex flex-column justify-content-center">
             <img src="imagenes/estetoscopio.png" class="img-option py-2" alt="Perfil" />
             <p>Historiales médicos</p>
         </a>
-        <a href="{{ route('turnos.show', $medico->id_medico) }}"
-            class="col option d-flex flex-column justify-content-center">
-            <img src="imagenes/tiempo.png" class="img-option py-2" alt="Perfil" />
-            <p>Turnos</p>
-        </a>
-
-    </div>
-    <div class="row gap">
-        <a href="{{ route('medicos.show', $medico->id_medico) }}"
-            class="col option d-flex flex-column justify-content-center">
-            <img src="imagenes/usuario.png" class="img-option py-2" alt="Perfil" />
-            <p>Mi perfil</p>
-        </a>
+        @if($medico) <!-- Verifica que $medico esté definido -->
+            <a href="{{ route('turnos.show', $medico->id_medico) }}"
+                class="col option d-flex flex-column justify-content-center">
+                <img src="imagenes/tiempo.png" class="img-option py-2" alt="Perfil" />
+                <p>Turnos</p>
+            </a>
+        @endif
+        @if($medico) <!-- Verifica que $medico esté definido -->
+            <a href="{{ route('medicos.show', $medico->id_medico) }}"
+                class="col option d-flex flex-column justify-content-center">
+                <img src="imagenes/usuario.png" class="img-option py-2" alt="Perfil" />
+                <p>Mi perfil</p>
+            </a>
+        @endif
     </div>
 </section>
 <div class="cuadroAnuncios">
@@ -33,27 +35,11 @@
                             Anuncio
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Conferencia Médica Especializada</h5>
-                            <p class="card-text">"¡Conferencia médica sobre cardiología el 21 de mayo! Destacados
-                                expertos compartirán sus conocimientos. ¡Inscríbete ahora!"</p>
-                        </div>
-                        <div class="card-footer text-muted">
-                            hace 2 días
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-center espacio">
-                        <div class="card-header">
-                            Anuncio
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Recordatorio de Reunión de Equipo</h5>
-                            <p class="card-text">"Reunión de Equipo Médico el 12 de mayo a las 18:30hs. Discutiremos
-                                casos y protocolos actualizados. ¡Tu presencia es vital!"</p>
-                        </div>
-                        <div class="card-footer text-muted">
-                            hace 5 días
+                            <h5 class="card-title">Cuidado con el Dengue:</h5>
+                            <p class="card-text">"¡Prevenir el dengue es tarea de todos! Elimina agua estancada, usa
+                                repelente y busca atención médica si presentas síntomas. Juntos podemos detener el
+                                dengue. ¡Cuida tu salud!"</p>
+
                         </div>
                     </div>
                 </div>
@@ -63,12 +49,24 @@
                             Anuncio
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Oportunidad de Investigación Clínica</h5>
-                            <p class="card-text">"¡Participa en ensayos clínicos innovadores en el Hospital DaVinci!
-                                Comunícate con el departamento de investigación médica."</p>
+                            <h5 class="card-title">Servicio técnico</h5>
+                            <p class="card-text">"Ante cualquier duda o inconveniente comunicarse a:<br>
+                                constanza.delfino@davinci.edu.ar
+                                sandra.leonardelli@davinci.edu.ar
+                                mariana.sosa@davinci.edu.ar"</p>
                         </div>
-                        <div class="card-footer text-muted">
-                            hace 7 días
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center espacio">
+                        <div class="card-header">
+                            Anuncio
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Vacunación Gratuita contra la Gripe</h5>
+                            <p class="card-text">"¡Vacúnate gratis contra la gripe y protege tu salud! Visítanos
+                                mismo para recibir tu vacuna. ¡Prevenir la gripe es fácil y importante! ¡No esperes
+                                más!"</p>
                         </div>
                     </div>
                 </div>

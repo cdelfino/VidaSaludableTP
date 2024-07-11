@@ -36,6 +36,19 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="fecha_nacimiento" class="form-label"><i class="far fa-calendar-alt me-2"></i>Fecha de
+                    Nacimiento</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="matricula" class="form-label">Matrícula</label>
+                <input type="text" id="matricula" name="matricula" class="form-control"
+                    value="{{ old('matricula', $medico->matricula) }}">
+                @error('matricula')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
 
             <div class="mb-3">
                 <label for="telefono" class="form-label">Teléfono</label>

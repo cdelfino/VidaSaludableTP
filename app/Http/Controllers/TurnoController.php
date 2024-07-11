@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Turno;
 use App\Models\Medico;
+use App\Models\Paciente;
+use Illuminate\Support\Facades\Auth;
+use App\Models\HistoriaClinica;
 
 class TurnoController extends Controller
 {
@@ -14,7 +17,14 @@ class TurnoController extends Controller
      */
     public function index()
     {
-        $turnos = Turno::with('paciente', 'medico')->get();
+        $user = Auth::user();
+        $paciente = Paciente::where('user_id', $user->id)->firstOrFail();
+
+        $turnos = Turno::where('id_paciente', $paciente->id_paciente)->with('medico')->get();
+        foreach ($turnos as $turno) {
+            $historiaClinica = HistoriaClinica::where('id_paciente', $turno->paciente->id_paciente)->first();
+            $turno->historia_clinica_id = $historiaClinica ? $historiaClinica->id_historiaclinica : null;
+        }
         return view('turnos.index', compact('turnos'));
     }
 
@@ -23,10 +33,14 @@ class TurnoController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
+        $paciente = Paciente::where('user_id', $user->id)->firstOrFail();
         $medicos = Medico::all();
-        $pacienteId = auth()->user()->id;  // id del paciente logueado
-        return view('turnos.create', compact('medicos', 'pacienteId')); //pasar id de paciente logueado
 
+        return view('turnos.create', [
+            'medicos' => $medicos,
+            'pacienteId' => $paciente->id_paciente
+        ]);
     }
 
     /**
@@ -34,7 +48,6 @@ class TurnoController extends Controller
      */
     public function store(Request $request)
     {
-        //faltan validaciones 
 
         Turno::create([
             'nombre' => $request->nombre,
@@ -42,10 +55,10 @@ class TurnoController extends Controller
             'telefono' => $request->telefono,
             'direccion' => $request->direccion,
             'dni' => $request->dni,
-            'id_medico' => $request->medico,
-            'id_paciente' => auth()->user()->id,
             'fecha' => $request->fecha,
             'hora' => $request->hora,
+            'id_medico' => $request->id_medico,
+            'id_paciente' => $request->id_paciente,
         ]);
 
         return redirect()->route('turnos.index')->with('success', 'Turno agendado con éxito.');
@@ -55,17 +68,16 @@ class TurnoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)//mostrar turnos en vista medico
+    public function show(string $id)//ARREGLAR PARA MEDICO
     {
-        // busca el turno por id
+        $user = Auth::user();
+        $medico = Medico::where('user_id', $user->id)->firstOrFail();
+        $turnos = Turno::where('id_medico', $medico->id_medico)->get();
 
-        //aca flta verificr si el user logueado es un medico
-        $medicoId = auth()->user()->id;
-        $turnos = Turno::where('id_medico', $medicoId)->with('paciente')->get();
-        $days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
-        $hours = ['08:00', '09:00', '10:00', '11:00', '12:00'];
-
-        return view('turnos.show', compact('turnos', 'days', 'hours'));
+        return view('turnos.show', [
+            'turnos' => $turnos,
+            'medicoId' => $medico->id_medico
+        ]);
 
     }
 

@@ -41,9 +41,9 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ($user->id_rol == 2) {
-            return redirect()->route('/medicos');
+            return redirect()->route('medicos.index');
         } elseif ($user->id_rol == 3) {
-            return redirect()->route('/pacientes');
+            return redirect()->route('pacientes.index');
         } else {
             return redirect('/home'); // Ruta de fallback en caso de que el rol no coincida
         }

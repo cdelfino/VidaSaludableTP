@@ -1,4 +1,5 @@
-@extends('layout.plantillapaciente')
+@extends('layouts.app')
+@extends('layouts.plantillabarra')
 
 @section('title', 'Detalles del Paciente')
 
@@ -16,7 +17,7 @@
         </a>
     </div>
     <div class="row gap">
-        <a href="{{ route('pacientes.show', Auth::user()->id) }}"
+        <a href="{{ route('pacientes.show', Auth::user()->paciente->id_paciente) }}"
             class="col option d-flex flex-column justify-content-center">
             <img src="{{ asset('imagenes/usuario.png') }}" class="img-option py-2" alt="Perfil" />
             <p>Mi perfil</p>
@@ -24,6 +25,7 @@
     </div>
 </section>
 
+</section>
 <div class="cuadroAnuncios">
     <section>
         <div class="container">
@@ -34,29 +36,11 @@
                             Anuncio
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Vacunación Gratuita contra la Gripe</h5>
-                            <p class="card-text">"¡Vacúnate gratis contra la gripe y protege tu salud! Visítanos hoy
-                                mismo para recibir tu vacuna. ¡Prevenir la gripe es fácil y importante! ¡No esperes
-                                más!"</p>
-                        </div>
-                        <div class="card-footer text-muted">
-                            hace 2 días
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-center espacio">
-                        <div class="card-header">
-                            Anuncio
-                        </div>
-                        <div class="card-body">
                             <h5 class="card-title">Cuidado con el Dengue:</h5>
                             <p class="card-text">"¡Prevenir el dengue es tarea de todos! Elimina agua estancada, usa
                                 repelente y busca atención médica si presentas síntomas. Juntos podemos detener el
                                 dengue. ¡Cuida tu salud!"</p>
-                        </div>
-                        <div class="card-footer text-muted">
-                            hace 5 días
+
                         </div>
                     </div>
                 </div>
@@ -66,21 +50,31 @@
                             Anuncio
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Nuevos Horarios de Atención</h5>
-                            <p class="card-text">"Atención comunidad: ¡Actualizamos nuestros horarios! A partir de
-                                ahora, te atenderemos de lunes a viernes de 8:00 a.m. a 6:00 p.m. ¡Planifica tu visita
-                                dentro de estos horarios! ¡Gracias por tu confianza!"</p>
+                            <h5 class="card-title">Servicio técnico</h5>
+                            <p class="card-text">"Ante cualquier duda o inconveniente comunicarse a:<br>
+                                constanza.delfino@davinci.edu.ar
+                                sandra.leonardelli@davinci.edu.ar
+                                mariana.sosa@davinci.edu.ar"</p>
                         </div>
-                        <div class="card-footer text-muted">
-                            hace 7 días
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center espacio">
+                        <div class="card-header">
+                            Anuncio
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Vacunación Gratuita contra la Gripe</h5>
+                            <p class="card-text">"¡Vacúnate gratis contra la gripe y protege tu salud! Visítanos
+                                mismo para recibir tu vacuna. ¡Prevenir la gripe es fácil y importante! ¡No esperes
+                                más!"</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-</div>
 
 
 
-@endsection
+    @endsection
